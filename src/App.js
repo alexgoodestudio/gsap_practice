@@ -1,34 +1,46 @@
-import { useEffect } from 'react';
-import { gsap } from 'gsap';
+import React, { useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import "./App.css";
 
-function App() {
-  const letters = ['A', 'L', 'L', 'T', 'R', 'A', 'D', 'E', 'S'];
+export default function App() {
+  const boxRef = useRef(null);
+  const textRef = useRef(null);
 
-  useEffect(() => {
-    gsap.from(".letter", {
-      yPercent: 100,
-      duration: 0.1,
-      stagger: 0.1,
+  useGSAP(() => {
+    gsap.to(boxRef.current, { 
+      rotation: 160,
+      x: 100,
+      y: 400,
+      duration: 2,
+      yoyo: true,
+      repeat: 4
+    
     });
-  }, []);
+  }, { scope: boxRef });
+
+    useGSAP(() => {
+    gsap.to(textRef.current, { 
+      rotation: 90,
+      x: 300,
+      y: 200,
+      duration: 2,
+      yoyo: true,
+      repeat: 4
+    
+    });
+  }, { scope: textRef });
+
+
+  
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white text-black font-sans">
-      <h1 className="text-4xl font-bold mb-8">GSAP Text Animation</h1>
-      <div className="flex gap-2">
-        {letters.map((letter, index) => (
-          <div
-            key={index}
-            className="w-12 h-12 flex items-center justify-center"
-          >
-            <span className="letter text-4xl font-bold">
-              {letter}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
+    <>
+    <div
+      ref={boxRef}
+      className="boxes-container"
+    />
+    <h1 ref={textRef} className="text-center"> Hello World </h1>
+    </>
   );
 }
-
-export default App;
