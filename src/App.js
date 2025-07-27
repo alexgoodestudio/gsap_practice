@@ -51,7 +51,7 @@ export default function App() {
     });
   }, { scope: textRef });
 
-  // Animate subtitle words
+
   useGSAP(() => {
     const split = new SplitText(subTextRef.current, { type: "words" });
 
@@ -125,7 +125,7 @@ export default function App() {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-black text-white">
       {/* 100 Floating Balls */}
-      {[...Array(300)].map((_, i) => (
+      {[...Array(50)].map((_, i) => (
         <div
           key={i}
           className="ball absolute rounded-full bg-pink-400 w-4 h-4 opacity-80 z-0"
