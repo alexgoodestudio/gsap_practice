@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 
+
 function Nav() {
   return (
-    <nav className="bg-black px-6 py-4 flex gap-6">
-      <Link className="text-white" to="/">Home</Link>
-      <Link className="text-white" to="/1">Example 1</Link>
+    <nav className="bg-black text-white px-6 py-4 flex gap-6">
+      <Link to="/">Home</Link>
+      <Link to="/1">Scroll Boxes</Link>
+      <Link to="/2">Timeline Boxes</Link>
+      <Link to="/3">Rotate Y Box</Link>
+      <Link to="/4">Split Entrance Text</Link>
+      <Link to="/5">Motion Path</Link>
     </nav>
   );
 }
