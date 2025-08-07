@@ -10,6 +10,8 @@ function Nav() {
       <Link to="/3">Rotate Y Box</Link>
       <Link to="/4">Split Entrance Text</Link>
       <Link to="/5">Motion Path</Link>
+      <Link to="/6">X_Randomize</Link>
+      <Link to="/7">Scroll Playground</Link>
     </nav>
   );
 }

@@ -5,6 +5,9 @@
   margin: 20px auto;
 }
 
+
+
+
 .circle {
   width: 100px;
   height: 100px;
@@ -36,6 +39,13 @@
 
 .card-wrapper {
   perspective: 800px;
+}
+
+.gradient1{
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  -webkit-clip-path: circle(40% at 50% 50%);
+  clip-path: circle(40% at 50% 50%); 
+   border-radius: 100px;
 }
 
 .card {

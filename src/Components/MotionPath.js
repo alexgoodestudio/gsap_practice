@@ -1,16 +1,18 @@
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { MotionPathHelper } from "gsap/MotionPathHelper";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(MotionPathPlugin);
+gsap.registerPlugin(MotionPathPlugin, MotionPathHelper);
 
 function MotionPath() {
   const circleRef = useRef(null);
   const pathRef = useRef(null);
 
   useGSAP(() => {
-    gsap.to(circleRef.current, {
+    // Create the animation and assign it to a variable
+    const tween = gsap.to(circleRef.current, {
       duration: 4,
       repeat: -1,
       ease: "power1.inOut",
@@ -21,6 +23,9 @@ function MotionPath() {
         autoRotate: true,
       },
     });
+
+    // Attach the helper to the tween (not the element)
+    MotionPathHelper.create(tween);
   }, []);
 
   return (
